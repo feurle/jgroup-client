@@ -1,0 +1,313 @@
+2020-05-26 10:12:33.443 INFO  [Start Level: Equinox Container: 1cfc3e52-6561-43ab-a113-7c03df25c33e][JGroupsClusterChannelFactory:161]
+Autodetecting JGroups outgoing IP address and interface for oidprod.gebr-weiss.com:3060
+
+2020-05-26 10:12:33.449 INFO  [Start Level: Equinox Container: 1cfc3e52-6561-43ab-a113-7c03df25c33e][JGroupsClusterChannelFactory:200]
+Setting JGroups outgoing IP address to 194.107.10.197 and interface to eth0
+
+-------------------------------------------------------------------
+GMS: address=polr90l-47463, cluster=liferay-channel-control, physical address=194.107.10.197:45981
+-------------------------------------------------------------------
+2020-05-26 10:12:35.669 INFO  [Start Level: Equinox Container: 1cfc3e52-6561-43ab-a113-7c03df25c33e][JGroupsReceiver:91]
+Accepted view [polr90l-47463|0] (1) [polr90l-47463]
+
+2020-05-26 10:12:35.673 INFO  [Start Level: Equinox Container: 1cfc3e52-6561-43ab-a113-7c03df25c33e][JGroupsClusterChannel:109]
+Create a new JGroups channel
+{
+channelName: liferay-channel-control,
+localAddress: polr90l-47463,
+properties: UDP(
+    discard_incompatible_packets=true;
+    internal_thread_pool_min_threads=2;
+    internal_thread_pool_keep_alive_time=30000;
+    time_service_interval=500;
+    thread_pool_max_threads=10;
+    internal_thread_pool_queue_enabled=true;
+    mcast_group_addr=239.255.0.1;
+    ergonomics=true;
+    enable_unicast_bundling=true;
+    port_range=50;
+    loopback_copy=false;
+    thread_naming_pattern=cl;
+    suppress_time_out_of_buffer_space=60000;
+    internal_thread_pool_rejection_policy=abort;
+    internal_thread_pool_enabled=true;
+    stats=true;
+    oob_thread_pool_enabled=true;
+    oob_thread_pool_rejection_policy=abort;
+    suppress_time_different_version_warnings=60000;
+    mcast_send_buf_size=100000;
+    id=75;
+    thread_pool_rejection_policy=abort;
+    logical_addr_cache_max_size=2000;
+    suppress_time_different_cluster_warnings=60000;
+    loopback=true;
+    timer_rejection_policy=abort;
+    oob_thread_pool_min_threads=2;
+    bundler_num_spins=40;
+    max_bundle_timeout=20;
+    enable_diagnostics=true;
+    mcast_recv_buf_size=500000;
+    disable_loopback=false;
+    internal_thread_pool_max_threads=4;
+    external_port=0;
+    oob_thread_pool_max_threads=10;
+    no_bundler_pool_size=10;
+    log_discard_msgs=true;
+    name=UDP;
+    oob_thread_pool_keep_alive_time=30000;
+    bind_addr=194.107.10.197;
+    wheel_size=200;
+    bundler_capacity=16384;
+    log_discard_msgs_version=true;
+    enable_batching=true;
+    tick_time=50;
+    timer_max_threads=4;
+    ucast_send_buf_size=100000;
+    thread_pool_queue_enabled=true;
+    enable_bundling=true;
+    ucast_recv_buf_size=64000;
+    oob_thread_pool_queue_enabled=false;
+    thread_pool_keep_alive_time=30000;
+    bind_port=0;
+    thread_pool_min_threads=2;
+    ignore_dont_bundle=true;
+    ip_ttl=8;
+    bind_interface_str=;
+    diagnostics_ttl=8;
+    tos=8;
+    loopback_separate_thread=true;
+    logical_addr_cache_expiration=120000;
+    oob_thread_pool_queue_max_size=500;
+    diagnostics_addr=224.0.75.75;
+    receive_on_all_interfaces=false;
+    mcast_port=23301;
+    internal_thread_pool_queue_max_size=500;
+    timer_queue_max_size=500;
+    thread_pool_queue_max_size=10000;
+    no_bundler_initial_buf_size=512;
+    max_bundle_size=64000;
+    physical_addr_max_fetch_attempts=1;
+    ip_mcast=true;
+    timer_min_threads=2;
+    thread_pool_enabled=true;
+    bundler_type=transfer-queue;
+    timer_keep_alive_time=5000;
+    logical_addr_cache_reaper_interval=60000;
+    timer_type=new3;diagnostics_port=7500;
+    who_has_cache_timeout=2000
+)
+:
+PING(
+    async_discovery_use_separate_thread_per_request=false;
+    ergonomics=true;
+    stagger_timeout=0;
+    force_sending_discovery_rsps=true;
+    async_discovery=false;
+    timeout=3000;
+    always_send_physical_addr_with_discovery_request=true;
+    max_members_in_discovery_request=500;
+    send_cache_on_join=false;
+    num_initial_srv_members=0;
+    break_on_coord_rsp=true;
+    stats=true;
+    use_disk_cache=false;
+    num_initial_members=10;
+    name=PING;
+    discovery_rsp_expiry_time=60000;
+    id=6;
+    return_entire_cache=false
+)
+:
+MERGE3(
+    check_interval=48000;
+    stats=true;
+    min_interval=10000;
+    ergonomics=true;
+    name=MERGE3;
+    id=54;
+    max_participants_in_merge=100;
+    max_interval=30000;
+    only_coords_run_consistency_checker=false
+)
+:
+FD_SOCK(
+    cache_max_age=10000;
+    get_cache_timeout=1000;
+    sock_conn_timeout=1000;
+    client_bind_port=0;
+    ergonomics=true;
+    start_port=0;
+    port_range=50;
+    suspect_msg_interval=5000;
+    num_tries=3;
+    bind_interface_str=;
+    stats=true;
+    external_port=0;
+    name=FD_SOCK;
+    bind_addr=127.0.0.1;
+    keep_alive=true;
+    id=3;
+    cache_max_elements=200
+)
+:
+FD_ALL(
+    use_time_service=true;
+    stats=true;
+    timeout_check_interval=2000;
+    ergonomics=true;
+    name=FD_ALL;
+    interval=8000;
+    id=29;
+    timeout=40000;
+    msg_counts_as_heartbeat=false
+)
+:
+VERIFY_SUSPECT(
+    num_msgs=1;
+    use_mcast_rsps=false;
+    bind_interface_str=;
+    stats=true;
+    ergonomics=true;
+    name=VERIFY_SUSPECT;
+    bind_addr=127.0.0.1;
+    id=13;
+    timeout=1500;
+    use_icmp=false
+)
+:
+NAKACK2(
+    resend_last_seqno_max_times=1;
+    use_mcast_xmit=false;
+    ergonomics=true;
+    xmit_table_msgs_per_row=2000;
+    xmit_table_max_compaction_time=30000;
+    become_server_queue_size=50;
+    xmit_interval=500;
+    print_stability_history_on_failed_xmit=false;
+    resend_last_seqno=true;
+    max_xmit_req_size=511600;
+    discard_delivered_msgs=true;
+    suppress_time_non_member_warnings=60000;
+    max_msg_batch_size=500;
+    xmit_table_num_rows=100;
+    stats=true;
+    xmit_from_random_member=false;
+    log_discard_msgs=true;
+    log_not_found_msgs=true;
+    xmit_table_resize_factor=1.2;
+    name=NAKACK2;
+    id=57;
+    max_rebroadcast_timeout=2000;
+    use_mcast_xmit_req=false
+)
+:
+UNICAST3(
+    ergonomics=true;
+    xmit_table_msgs_per_row=2000;
+    xmit_table_max_compaction_time=60000;
+    ack_threshold=5;
+    sync_min_interval=2000;
+    max_retransmit_time=60000;
+    xmit_interval=500;
+    max_xmit_req_size=511600;
+    conn_close_timeout=10000;
+    max_msg_batch_size=500;
+    conn_expiry_timeout=0;
+    ack_batches_immediately=true;
+    xmit_table_num_rows=100;
+    stats=true;
+    xmit_table_resize_factor=1.2;
+    log_not_found_msgs=true;
+    name=UNICAST3;
+    id=64
+)
+:
+STABLE(
+    cap=0.1;
+    stability_delay=0;
+    stats=true;
+    ergonomics=true;
+    name=STABLE;
+    desired_avg_gossip=50000;
+    max_bytes=4000000;
+    id=16;
+    send_stable_msgs_to_coord_only=true
+)
+:
+GMS(
+    max_join_attempts=10;
+    print_local_addr=true;
+    handle_concurrent_startup=true;
+    view_bundling=true;
+    leave_timeout=1000;
+    log_view_warnings=true;
+    install_view_locally_first=false;
+    ergonomics=true;
+    use_delta_views=true;
+    resume_task_timeout=20000;
+    use_flush_if_present=true;
+    print_physical_addrs=true;
+    join_timeout=2000;
+    view_ack_collection_timeout=2000;
+    stats=true;
+    num_prev_views=10;
+    merge_timeout=5000;
+    max_bundling_time=50;
+    name=GMS;
+    num_prev_mbrs=50;
+    id=14;
+    log_collect_msgs=false;
+    membership_change_policy=org.jgroups.protocols.pbcast.GMS$DefaultMembershipPolicy@4938915a
+)
+:
+UFC(
+    min_threshold=0.4;
+    stats=true;
+    ergonomics=true;
+    max_credits=2000000;
+    name=UFC;
+    min_credits=800000;
+    id=45;
+    max_block_time=500;
+    ignore_synchronous_response=false
+)
+:
+MFC(
+    min_threshold=0.4;
+    stats=true;
+    ergonomics=true;
+    max_credits=2000000;
+    name=MFC;
+    min_credits=800000;
+    id=44;
+    max_block_time=500;
+    ignore_synchronous_response=false
+)
+:
+FRAG2(
+    frag_size=60000;
+    stats=true;
+    ergonomics=true;
+    name=FRAG2;
+    id=5
+)
+:
+RSVP(
+    ack_on_delivery=true;
+    stats=true;
+    ergonomics=true;
+    name=RSVP;
+    resend_interval=2000;
+    id=55;
+    throw_exception_on_timeout=true;
+    timeout=10000
+)
+}
+
+
+-------------------------------------------------------------------
+GMS: address=polr90l-47934, cluster=liferay-channel-transport-0, physical address=194.107.10.197:44496
+-------------------------------------------------------------------
+2020-05-26 10:12:37.759 INFO  [Start Level: Equinox Container: 1cfc3e52-6561-43ab-a113-7c03df25c33e][JGroupsReceiver:91] Accepted view [polr90l-47934|0] (1) [polr90l-47934]
+2020-05-26 10:12:37.762 INFO  [Start Level: Equinox Container: 1cfc3e52-6561-43ab-a113-7c03df25c33e][JGroupsClusterChannel:109] Create a new JGroups channel {channelName: liferay-channel-transport-0, localAddress: polr90l-47934, properties: UDP(discard_incompatible_packets=true;internal_thread_pool_min_threads=2;internal_thread_pool_keep_alive_time=30000;time_service_interval=500;thread_pool_max_threads=10;internal_thread_pool_queue_enabled=true;mcast_group_addr=239.255.0.2;ergonomics=true;enable_unicast_bundling=true;port_range=50;loopback_copy=false;thread_naming_pattern=cl;suppress_time_out_of_buffer_space=60000;internal_thread_pool_rejection_policy=abort;internal_thread_pool_enabled=true;stats=true;oob_thread_pool_enabled=true;oob_thread_pool_rejection_policy=abort;suppress_time_different_version_warnings=60000;mcast_send_buf_size=100000;id=75;thread_pool_rejection_policy=abort;logical_addr_cache_max_size=2000;suppress_time_different_cluster_warnings=60000;loopback=true;timer_rejection_policy=abort;oob_thread_pool_min_threads=2;bundler_num_spins=40;max_bundle_timeout=20;enable_diagnostics=true;mcast_recv_buf_size=500000;disable_loopback=false;internal_thread_pool_max_threads=4;external_port=0;oob_thread_pool_max_threads=10;no_bundler_pool_size=10;log_discard_msgs=true;name=UDP;oob_thread_pool_keep_alive_time=30000;bind_addr=194.107.10.197;wheel_size=200;bundler_capacity=16384;log_discard_msgs_version=true;enable_batching=true;tick_time=50;timer_max_threads=4;ucast_send_buf_size=100000;thread_pool_queue_enabled=true;enable_bundling=true;ucast_recv_buf_size=64000;oob_thread_pool_queue_enabled=false;thread_pool_keep_alive_time=30000;bind_port=0;thread_pool_min_threads=2;ignore_dont_bundle=true;ip_ttl=8;bind_interface_str=;diagnostics_ttl=8;tos=8;loopback_separate_thread=true;logical_addr_cache_expiration=120000;oob_thread_pool_queue_max_size=500;diagnostics_addr=224.0.75.75;receive_on_all_interfaces=false;mcast_port=23302;internal_thread_pool_queue_max_size=500;timer_queue_max_size=500;thread_pool_queue_max_size=10000;no_bundler_initial_buf_size=512;max_bundle_size=64000;physical_addr_max_fetch_attempts=1;ip_mcast=true;timer_min_threads=2;thread_pool_enabled=true;bundler_type=transfer-queue;timer_keep_alive_time=5000;logical_addr_cache_reaper_interval=60000;timer_type=new3;diagnostics_port=7500;who_has_cache_timeout=2000):PING(async_discovery_use_separate_thread_per_request=false;ergonomics=true;stagger_timeout=0;force_sending_discovery_rsps=true;async_discovery=false;timeout=3000;always_send_physical_addr_with_discovery_request=true;max_members_in_discovery_request=500;send_cache_on_join=false;num_initial_srv_members=0;break_on_coord_rsp=true;stats=true;use_disk_cache=false;num_initial_members=10;name=PING;discovery_rsp_expiry_time=60000;id=6;return_entire_cache=false):MERGE3(check_interval=48000;stats=true;min_interval=10000;ergonomics=true;name=MERGE3;id=54;max_participants_in_merge=100;max_interval=30000;only_coords_run_consistency_checker=false):FD_SOCK(cache_max_age=10000;get_cache_timeout=1000;sock_conn_timeout=1000;client_bind_port=0;ergonomics=true;start_port=0;port_range=50;suspect_msg_interval=5000;num_tries=3;bind_interface_str=;stats=true;external_port=0;name=FD_SOCK;bind_addr=127.0.0.1;keep_alive=true;id=3;cache_max_elements=200):FD_ALL(use_time_service=true;stats=true;timeout_check_interval=2000;ergonomics=true;name=FD_ALL;interval=8000;id=29;timeout=40000;msg_counts_as_heartbeat=false):VERIFY_SUSPECT(num_msgs=1;use_mcast_rsps=false;bind_interface_str=;stats=true;ergonomics=true;name=VERIFY_SUSPECT;bind_addr=127.0.0.1;id=13;timeout=1500;use_icmp=false):NAKACK2(resend_last_seqno_max_times=1;use_mcast_xmit=false;ergonomics=true;xmit_table_msgs_per_row=2000;xmit_table_max_compaction_time=30000;become_server_queue_size=50;xmit_interval=500;print_stability_history_on_failed_xmit=false;resend_last_seqno=true;max_xmit_req_size=511600;discard_delivered_msgs=true;suppress_time_non_member_warnings=60000;max_msg_batch_size=500;xmit_table_num_rows=100;stats=true;xmit_from_random_member=false;log_discard_msgs=true;log_not_found_msgs=true;xmit_table_resize_factor=1.2;name=NAKACK2;id=57;max_rebroadcast_timeout=2000;use_mcast_xmit_req=false):UNICAST3(ergonomics=true;xmit_table_msgs_per_row=2000;xmit_table_max_compaction_time=60000;ack_threshold=5;sync_min_interval=2000;max_retransmit_time=60000;xmit_interval=500;max_xmit_req_size=511600;conn_close_timeout=10000;max_msg_batch_size=500;conn_expiry_timeout=0;ack_batches_immediately=true;xmit_table_num_rows=100;stats=true;xmit_table_resize_factor=1.2;log_not_found_msgs=true;name=UNICAST3;id=64):STABLE(cap=0.1;stability_delay=0;stats=true;ergonomics=true;name=STABLE;desired_avg_gossip=50000;max_bytes=4000000;id=16;send_stable_msgs_to_coord_only=true):GMS(max_join_attempts=10;print_local_addr=true;handle_concurrent_startup=true;view_bundling=true;leave_timeout=1000;log_view_warnings=true;install_view_locally_first=false;ergonomics=true;use_delta_views=true;resume_task_timeout=20000;use_flush_if_present=true;print_physical_addrs=true;join_timeout=2000;view_ack_collection_timeout=2000;stats=true;num_prev_views=10;merge_timeout=5000;max_bundling_time=50;name=GMS;num_prev_mbrs=50;id=14;log_collect_msgs=false;membership_change_policy=org.jgroups.protocols.pbcast.GMS$DefaultMembershipPolicy@1275f1a1):UFC(min_threshold=0.4;stats=true;ergonomics=true;max_credits=2000000;name=UFC;min_credits=800000;id=45;max_block_time=500;ignore_synchronous_response=false):MFC(min_threshold=0.4;stats=true;ergonomics=true;max_credits=2000000;name=MFC;min_credits=800000;id=44;max_block_time=500;ignore_synchronous_response=false):FRAG2(frag_size=60000;stats=true;ergonomics=true;name=FRAG2;id=5):RSVP(ack_on_delivery=true;stats=true;ergonomics=true;name=RSVP;resend_interval=2000;id=55;throw_exception_on_timeout=true;timeout=10000)}
+Host localhost 29998
