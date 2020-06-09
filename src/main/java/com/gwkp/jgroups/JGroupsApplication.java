@@ -1,27 +1,24 @@
 package com.gwkp.jgroups;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.cli.*;
 import org.jgroups.*;
 import org.jgroups.util.Util;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.annotation.PostConstruct;
 import java.io.*;
-import java.text.ParseException;
 import java.util.*;
 
 @SpringBootApplication
 @Slf4j
-public class JGroupsApplication extends ReceiverAdapter implements ApplicationRunner {
+public class JGroupsApplication extends ReceiverAdapter implements CommandLineRunner {
 
     private JChannel channel;
     private String nodeName;
-    @Value("${cluster.name}")
     private String clusterName;
     private View lastView;
     private boolean running = true;
@@ -42,17 +39,18 @@ public class JGroupsApplication extends ReceiverAdapter implements ApplicationRu
     }
 
     @Override
-    public void run(ApplicationArguments args) throws Exception {
+    public void run(String[] args) throws Exception {
         log.info("EXECUTING : command line runner");
+
+        for (int i = 0; i < args.length; ++i) {
+            log.info("args[{}]: {}", i, args[i]);
+        }
 
         processCommandline(args);
 
-        channel = new JChannel("src/main/resources/udp.xml");
+        channel = new JChannel("udp.xml");
 
-        if (nodeName != null) {
-            // name the node
-            channel.name(nodeName);
-        }
+        channel.name(nodeName);
 
         // Register for callbacks
         channel.setReceiver(this);
@@ -79,22 +77,34 @@ public class JGroupsApplication extends ReceiverAdapter implements ApplicationRu
      * @param args the command line args
      * @throws ParseException
      */
-    private void processCommandline(ApplicationArguments args) throws ParseException {
-        System.out.println("# NonOptionArgs: " + args.getNonOptionArgs().size());
+    private void processCommandline(String[] args) throws ParseException {
 
-        System.out.println("NonOptionArgs:");
-        args.getNonOptionArgs().forEach(System.out::println);
 
-        if (args.getNonOptionArgs().size() == 1) {
-            nodeName = args.getNonOptionArgs().get(1);
+        // Options, parser, friendly help
+        Options options = new Options();
+        CommandLineParser parser = new DefaultParser();
+        HelpFormatter formatter = new HelpFormatter();
+
+        options.addOption("n", "node", true, "Node name")
+                .addOption("c", "cluster", true, "Cluster name (liferay-control-channel or liferay-channel-transport-0)");
+
+        CommandLine line = parser.parse(options, args);
+
+        if (line.hasOption("node")) {
+            nodeName = line.getOptionValue("node");
+        } else {
+            formatter.printHelp("JGroupsMessenger: need a node name.\n", options);
+            System.exit(-1);
         }
 
-        System.out.println("# OptionArgs: " + args.getOptionNames().size());
-        System.out.println("OptionArgs:");
+        if (line.hasOption("cluster")) {
+            clusterName = line.getOptionValue("cluster");
+        } else {
+            // System.out.println("JGroupsClient use the cluster: " + clusterName);
+            formatter.printHelp("JGroupsMessenger: need a cluster name (liferay-control-channel or liferay-channel-transport-0).\n", options);
+            System.exit(-1);
+        }
 
-        args.getOptionNames().forEach(optionName -> {
-            System.out.println(optionName + "=" + args.getOptionValues(optionName));
-        });
     }
 
     /**
