@@ -19,6 +19,7 @@ public class JGroupsApplication extends ReceiverAdapter implements CommandLineRu
 
     private JChannel channel;
     private String nodeName;
+    @Value("${cluster.name}")
     private String clusterName;
     private View lastView;
     private boolean running = true;
@@ -85,8 +86,7 @@ public class JGroupsApplication extends ReceiverAdapter implements CommandLineRu
         CommandLineParser parser = new DefaultParser();
         HelpFormatter formatter = new HelpFormatter();
 
-        options.addOption("n", "node", true, "Node name")
-                .addOption("c", "cluster", true, "Cluster name (liferay-control-channel or liferay-channel-transport-0)");
+        options.addOption("n", "node", true, "Node name");
 
         CommandLine line = parser.parse(options, args);
 
@@ -94,14 +94,6 @@ public class JGroupsApplication extends ReceiverAdapter implements CommandLineRu
             nodeName = line.getOptionValue("node");
         } else {
             formatter.printHelp("JGroupsMessenger: need a node name.\n", options);
-            System.exit(-1);
-        }
-
-        if (line.hasOption("cluster")) {
-            clusterName = line.getOptionValue("cluster");
-        } else {
-            // System.out.println("JGroupsClient use the cluster: " + clusterName);
-            formatter.printHelp("JGroupsMessenger: need a cluster name (liferay-control-channel or liferay-channel-transport-0).\n", options);
             System.exit(-1);
         }
 
