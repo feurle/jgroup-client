@@ -49,7 +49,7 @@ public class JGroupsApplication extends ReceiverAdapter implements CommandLineRu
 
         processCommandline(args);
 
-        channel = new JChannel("udp.xml");
+        channel = new JChannel("tcp_lr.xml");
 
         channel.name(nodeName);
 
@@ -226,6 +226,8 @@ public class JGroupsApplication extends ReceiverAdapter implements CommandLineRu
 
     private Optional<Address> getAddress(String name) {
         View view = channel.view();
+        List<Address> addressList = view.getMembers();
+        System.out.println("Members: " + addressList.size());
         return view.getMembers().stream().filter(address -> name.equals(address.toString())).findFirst();
     }
 
